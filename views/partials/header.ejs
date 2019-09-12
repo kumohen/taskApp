@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/font/octicons.min.css'>
+
+  <link rel='stylesheet ' href='./stylesheets/style.css'>
+    <title>Campgorund</title>
+</head>
+<body>
+        <nav class="navbar navbar-toggleable-md fixed-top bg-info">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse container">
+                  <!-- Navbar navigation links -->
+                  <ul class="navbar-nav mr-auto">
+                      
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/"><i class="octicon octicon-home fa-2x" aria-hidden="true"></i> Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                  </ul>
+                 
+                
+                   <ul class="navbar-nav ml-auto">
+                        <%  if(!currentUser){ %>   
+                    <li class="nav-item">
+                      <a class="nav-link" href="/register"><i class="fa fa-sign-in "></i> SignUp</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/login"><i class="fas fa-user-plus"></i> SignIn</a>
+                    </li>
+                    <%  }else{ %> 
+                        <li class="nav-item"><a class="nav-link" href="/user/<%= currentUser._id %>">
+                          <i class="fa fa-user-md mx-1" aria-hidden="true"></i><%= currentUser.username %></a></li>
+                        <li class="nav-item">  <a class="nav-link" href="/logout">
+                          <i class="fa fa-sign-out mx-1" aria-hidden="true"></i>Logout</a></li>
+                       <% } %>   
+                  </ul>
+                </div>
+              </nav>
